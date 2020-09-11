@@ -7,6 +7,8 @@ import com.example.base.service.UserCommandService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserCommandServiceImpl implements UserCommandService {
 
@@ -19,4 +21,5 @@ public class UserCommandServiceImpl implements UserCommandService {
         userRepository.save(user);
         return "Ok";
     }
+
 }

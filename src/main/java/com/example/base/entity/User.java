@@ -16,10 +16,12 @@ public class User {
 
     private String lastname;
 
+    public User(String firstname, String lastname) {
+
+    }
     public User() {
 
     }
-
     public User(UserCommandDto dto) {
         this.firstname = dto.getFirstname();
         this.lastname = dto.getLastname();

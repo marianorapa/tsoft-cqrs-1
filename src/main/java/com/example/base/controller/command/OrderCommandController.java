@@ -12,6 +12,4 @@ public class OrderCommandController {
     @Autowired
     private OrderCommandService orderCommandService;
 
-    public void
-
 }

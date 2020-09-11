@@ -14,8 +14,9 @@ public class UserCommandServiceImpl implements UserCommandService {
     UserRepository userRepository;
 
     @Override
-    public void saveUser(UserCommandDto dto) {
+    public User saveUser(UserCommandDto dto) {
         User user = new User(dto);
         userRepository.save(user);
+        return user;
     }
 }

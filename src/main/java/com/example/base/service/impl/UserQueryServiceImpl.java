@@ -4,9 +4,11 @@ import com.example.base.entity.User;
 import com.example.base.repository.UserRepository;
 import com.example.base.service.UserQueryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Service
 public class UserQueryServiceImpl implements UserQueryService {
 
     @Autowired

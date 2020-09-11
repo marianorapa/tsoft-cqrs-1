@@ -1,5 +1,6 @@
 package com.example.base.service.impl;
 
+import com.example.base.dto.CreateOrderCommandDto;
 import com.example.base.entity.Order;
 import com.example.base.entity.Product;
 import com.example.base.entity.User;
@@ -27,10 +28,10 @@ public class OrderCommandServiceImpl implements OrderCommandService {
     private UserRepository userRepository;
 
     @Override
-    public void createOrder(Long userId, List<Long> productIds) {
-        User user = userRepository.findById(userId).orElse(new User());
+    public Order createOrder(CreateOrderCommandDto command) {
+        User user = userRepository.findById(command.getUserId()).orElse(new User());
 
-        List<Product> products = productRepository.findAllById(productIds);
+        List<Product> products = productRepository.findAllById(command.getProductIds());
 
         Order newOrder = new Order();
         newOrder.setUser(user);
@@ -38,6 +39,8 @@ public class OrderCommandServiceImpl implements OrderCommandService {
         newOrder.setProducts(products);
 
         orderRepository.save(newOrder);
+
+        return newOrder;
     }
 
     @Override

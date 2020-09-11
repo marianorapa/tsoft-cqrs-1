@@ -1,10 +1,13 @@
 package com.example.base.service;
 
+import com.example.base.dto.CreateOrderCommandDto;
+import com.example.base.entity.Order;
+
 import java.util.List;
 
 public interface OrderCommandService {
 
-    void createOrder(Long userId, List<Long> productIds);
+    Order createOrder(CreateOrderCommandDto command);
 
     void cancelOrder(Long userId);
 

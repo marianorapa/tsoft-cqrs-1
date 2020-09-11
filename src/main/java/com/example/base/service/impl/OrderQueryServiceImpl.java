@@ -22,8 +22,9 @@ public class OrderQueryServiceImpl implements OrderQueryService {
         OrdersUserSummaryDto ordersUserSummaryDto = new OrdersUserSummaryDto();
         ordersUserSummaryDto.setUserName(userQueryService.getUserNameById(userId));
 
-        ordersUserSummaryDto.setTotalAmt(orderRepository
-                .findByUserId(userId).stream().map(Order::getTotalAmt).reduce((double) 0, Double::sum));
+        Double totalAmt = orderRepository.findByUserId(userId)
+                .stream().map(Order::getTotalAmt).reduce((double) 0, Double::sum);
+        ordersUserSummaryDto.setTotalAmt(totalAmt);
 
         return ordersUserSummaryDto;
     }

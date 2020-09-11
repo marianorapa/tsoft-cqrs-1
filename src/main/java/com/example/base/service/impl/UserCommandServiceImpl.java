@@ -11,12 +11,12 @@ import org.springframework.stereotype.Service;
 public class UserCommandServiceImpl implements UserCommandService {
 
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
 
     @Override
-    public User saveUser(UserCommandDto dto) {
+    public String saveUser(UserCommandDto dto) {
         User user = new User(dto);
         userRepository.save(user);
-        return user;
+        return "Ok";
     }
 }

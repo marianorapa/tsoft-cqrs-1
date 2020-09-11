@@ -35,15 +35,7 @@ public class OrderCommandServiceImpl implements OrderCommandService {
         Order newOrder = new Order();
         newOrder.setUser(user);
         newOrder.setDate(new Date());
-
-//        List<OrderDetail> details = products.stream().map(p -> {
-//            OrderDetail detail = new OrderDetail();
-//            detail.setProduct(p);
-//            detail.setOrder(newOrder);
-//            return detail;
-//        }).collect(Collectors.toList());
-//
-//        newOrder.setOrderDetails(details);
+        newOrder.setProducts(products);
 
         orderRepository.save(newOrder);
     }

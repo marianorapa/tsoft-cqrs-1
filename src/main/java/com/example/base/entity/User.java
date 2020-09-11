@@ -1,5 +1,7 @@
 package com.example.base.entity;
 
+import com.example.base.dto.UserCommandDto;
+
 import javax.persistence.*;
 
 @Entity
@@ -13,6 +15,15 @@ public class User {
     private String firstname;
 
     private String lastname;
+
+    public User() {
+
+    }
+
+    public User(UserCommandDto dto) {
+        this.firstname = dto.getFirstname();
+        this.lastname = dto.getLastname();
+    }
 
     public Long getId() {
         return id;

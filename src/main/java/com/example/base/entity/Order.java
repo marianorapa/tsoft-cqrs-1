@@ -63,4 +63,8 @@ public class Order {
     public void setDate(Date date) {
         this.date = date;
     }
+
+    public double getTotalAmt() {
+        return products.stream().map(Product::getPrice).reduce((double) 0, Double::sum);
+    }
 }
